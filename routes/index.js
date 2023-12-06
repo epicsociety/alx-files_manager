@@ -1,10 +1,13 @@
+import { Router } from 'express';
 import UsersController from '../controllers/UsersController';
 import AppController from '../controllers/AppController';
 
-function routerMiddle(app) {
-  app.get('/status', AppController.getStatus);
-  app.get('/stats', AppController.getStats);
-  app.post('/status', UsersController.postNew);
-}
+const router = Router();
 
-export default routerMiddle;
+router.get('/status', AppController.getStatus);
+
+router.get('/stats', AppController.getStats);
+
+router.post('/users', UsersController.postNew);
+
+export default router;

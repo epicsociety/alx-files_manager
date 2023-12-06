@@ -34,6 +34,10 @@ class DBClient {
     const count = await filesCollection.countDocuments();
     return count;
   }
+
+  async usersConnection() {
+        return this.client.db().collection('users');
+  }
 }
 
 const dbClient = new DBClient();
